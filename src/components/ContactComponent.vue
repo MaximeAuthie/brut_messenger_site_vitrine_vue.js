@@ -1,0 +1,36 @@
+<template>
+    <router-link to="/home"><img src="MEDIAS/back.png" alt="Retour à l'accueil du site" title="Retour à l'accueil du site"></router-link>
+    <div id="content-body">
+        <div id="contact-form">
+            <h1 class="titre-page">Formulaire de contact</h1><br>
+            <form @submit.prevent="">
+                <label for="first-name">Identifiant</label><br>
+                <input id="first-name" name="first-name" type="text"><br>
+                <label for="name">Nom</label><br>
+                <input id="name" name="name" type="text"><br>
+                <label for="email">Adresse e-mail</label><br>
+                <input id="email" name="email" type="email"><br>
+                <label for="subjet">Sujet</label><br>
+                <input id="subject" name="subject" type="text"><br>
+                <label for="message">Message</label><br>
+                <textarea id="message" name="message"> Saisir votre message ici </textarea><br>
+                <input class="principal" value="Envoyer">
+            </form>
+        </div> //*! Insérer les v-if*/
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            firstName:'',
+            lastName:'',
+            mail:'',
+            msgSubject:'',
+            message:''
+
+        }
+    },
+}
+</script>

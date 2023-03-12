@@ -1,0 +1,1070 @@
+/* GENERAL */
+
+:root {
+    --main-max-width:1100px;
+}
+
+body {
+    font-family: dongle, sans-serif;
+    background-color: #FFFEF8;
+    padding: 0px;
+    margin: 0px;
+}
+
+h1 {
+    font-family: BUNGEE;
+}
+
+h2 {
+    font-family: BUNGEE;
+    text-align: center;
+    line-height: 60px;
+    padding-top:30px;
+    margin: 0;
+}
+
+h3 {
+    font-size: 1.5em;
+    text-decoration: underline;
+}
+
+
+/* HEADER */
+
+header {
+    position: sticky;
+    z-index: 100;
+    top: 0px;
+    background-color: #23A093;
+    border-bottom: solid 4px;
+}
+
+#content-header {
+    display: flex;
+    flex-direction: row;
+    width: var(--main-max-width);
+    height: 130px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#logo-titre {
+    display: flex;
+    flex-direction: row;
+    flex: 65%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo-header {
+    flex: 10%;
+    height: 110px;
+}
+
+#logo-titre h1 {
+    flex: 90%;
+    padding-left: 20px;
+    font-size: 3.5em;
+}
+
+#img-logo {
+    max-height: 100%;
+}
+
+
+nav {
+    display: flex;
+    flex-direction: row;
+    flex : 35%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    color: white;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-decoration: none;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: black;
+    text-shadow: 2px 2px 0px black;
+    cursor: pointer;
+}
+
+#inscription {
+    color: #FCA311;
+}
+
+/* BODY */
+
+.titre-page {
+    font-size: 3em;
+    text-align: center;
+    line-height: 40px;
+    margin-bottom: 50px;
+}
+
+section h2 {
+    font-size: 3em;
+}
+
+#content-body-home {
+    display: flex;
+    width: var(--main-max-width);
+    height: 3030px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content-body {
+    display: flex;
+    flex-direction: column;
+    width: var(--main-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 80px;
+}
+
+section {
+    width: var(--main-max-width);
+}
+
+#first-section {
+    margin-top: 50px;
+    position: absolute;
+    padding-bottom: 270px;
+    text-align: center;
+    background-color: #FCA311;
+}
+
+#phone-div {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top:500px;
+    width: var(--main-max-width);
+    height: 500px;
+    z-index: 10;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#phone {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#second-section {
+    margin-top: 50px;
+    padding: 0px;
+    position: absolute;
+    top: 1020px;
+    text-align: center;
+    background-color: #6B9BFA;
+}
+
+#third-section {
+    margin-top: 50px;
+    padding: 0px;
+    position: absolute;
+    top: 1730px;
+    text-align: center;
+    background-color: #F55A4F;
+}
+
+#fourth-section {
+    margin-top: 50px;
+    padding: 0px;
+    position: absolute;
+    top: 2450px;
+    text-align: center;
+    background-color: #23A093;
+}
+
+.section-text-center {
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* MEF des div avec du texte et des icones sur la page Accueil*/
+
+.div-img-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.div-text-right {
+    flex: 80%;
+    text-align: end;
+    padding-right: 20px;
+}
+
+.div-text-left {
+    flex: 80%;
+    text-align: start;
+    padding-left: 20px;
+}
+
+.div-img-left {
+    position: relative;
+    flex : 20%;
+    left: -50px;
+    top: 10px;
+}
+
+.div-img-right {
+    position: relative;
+    flex : 20%;
+    right: -50px;
+    top : 10px;
+}
+
+section p {
+    margin: 0px;
+    padding-top: 30px;
+    color: white;
+    font-size : 3em;
+    line-height: 40px;
+}
+
+section span {
+    font-family: BUNGEE;
+    font-size: 0.8em;
+}
+
+.legal-text {
+    background-color: #FFFEF8;
+    max-width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 1.6em;
+    line-height: 30px;
+    word-wrap: break-word;
+}
+
+.legal-text p {
+    text-align:justify;
+}
+
+.p-center {
+    text-align: center;
+}
+
+#badges {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+#badges img {
+    display: block;
+    margin: auto;
+    width: 60%;
+}
+
+/* FOOTER */
+
+#content-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: var(--main-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+footer {
+    background-color: #23A093;
+}
+
+footer ul {
+    padding: 0;
+    line-height: 50px;
+    font-size: 2em;
+    color: white;
+    list-style-type: none;
+    list-style-position: inside;
+}
+
+.footer-ul-item {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#list-footer {
+    flex: 80%;
+    z-index: 10;
+    padding-left: 15px;
+}
+
+#social-network {
+    flex: 20%;
+    display: flex;
+    justify-content: space-around;
+    padding-right: 15px;
+}
+
+/* FORMULAIRES */
+
+#logo-body {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:50px;
+    border: 4px black;
+    height: 150px;
+}
+
+#contact-form {
+    background-color: #F55A4F;
+}
+
+#register-form {
+    background-color: #FCA311;
+}
+
+form  { 
+    display: block;
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+input {
+    display: block;
+    width: 50%;
+    height: 30px;
+    border: 4px solid black;
+    box-shadow: 7px 7px 0px black;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.2em;
+}
+
+textarea {
+    display: block;
+    width: 50%;
+    height: 150px;
+    border: 4px solid black;
+    box-shadow: 7px 7px 0px black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+label {
+    padding-left: 25%;
+    line-height: 0px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.principal {
+    display: block;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    font-size: 2em;
+    background-color: #F55A4F;
+    color: white;
+    height: 50px;
+    width: 220px;
+    border-radius: 5px 5px 5px 5px;
+    text-align: center;
+    font-family: 'Dongle', sans-serif;
+    cursor: pointer;
+}
+
+.secondary {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 2em;
+    color: black;
+    background-color: #FFFEF8;
+    height: 50px;
+    width: 220px;
+    border-radius: 5px 5px 5px 5px;
+    text-align: center;
+    font-family: 'Dongle', sans-serif;
+    cursor: pointer;
+}
+
+/*Affichage portrait tablettes très haute résolution*/
+@media screen and (max-width: 1900px) {
+    :root {
+        --main-max-width: 85%;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+    
+    h3 {
+        font-size: 2.5em;
+    }
+    
+    #content-header {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 250px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    #logo-header {
+        flex: 10%;
+        height: 220px;
+    }
+
+    #logo-titre {
+        flex:75%;
+        line-height: 0;
+    }
+
+    #logo-titre h1 {
+        flex: 90%;
+        padding-left: 20px;
+        font-size: 5.5em;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content:end;
+        flex:25%;
+        width: 95%;
+        height: 25%;
+        line-height: 0px;
+    }
+
+    .nav-item {
+        font-size: 4.3em;
+    }
+
+    #inscription {
+        padding-left: 40px;
+    }
+
+    #content-body-home {
+        height: 3600px;
+    }
+
+    section h2 {
+        font-size: 4em;
+        margin-bottom: 40px;
+    }
+    section p {
+        font-size:3.5em;
+    }
+    
+    #first-section {
+        margin-top: 100px;
+        padding-bottom: 370px;
+    }
+
+    #phone-div {
+        position: absolute;
+        top:700px;
+        height: 600px;
+    }
+
+    #second-section {
+        position: absolute;
+        top: 1350px;
+
+    }
+    
+    #third-section {
+        position: absolute;
+        top: 2200px;
+    }
+    
+    #fourth-section {
+        position: absolute;
+        top: 3050px;
+    }
+
+    footer ul {
+        font-size: 3.5em;
+        line-height: 80px;
+    }
+
+    #logo-body {
+        height: 250px;
+    }
+    
+    .legal-text {
+        margin-top: 70px;
+        font-size: 4em;
+        line-height: 40px;
+    }
+
+    .legal-text h2 {
+        font-size: 1em;
+    }
+
+    .legal-text h3 {
+        font-size: 1.2em;
+    }
+
+    .titre-page {
+        font-size: 5em;
+    }
+    
+    input {
+        width: 75%;
+        height: 70px;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+    
+    textarea {
+        width: 75%;
+        height: 350px;
+        font-size: 3em; 
+    }
+    
+    label {
+        padding-left: 12%;
+        line-height: 0px;
+        font-size: 3.7em;
+        font-weight: bold;
+
+    }
+    
+    .principal {
+        font-size: 4em;
+        height: 90px;
+        width: 350px;
+    }
+    
+    .secondary {
+        font-size: 4em;
+        height: 90px;
+        width: 350px;
+    }
+}
+
+/*Affichage portrait tablettes haute résolution*/
+@media screen and (max-width: 1400px) {
+    :root {
+        --main-max-width: 85%;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+    
+    h3 {
+        font-size: 2.5em;
+    }
+    
+    #content-header {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 160px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+    #logo-header {
+        flex: 10%;
+        height: 150px;
+    }
+
+    #logo-titre {
+        flex: 75%;
+        line-height: 0;
+    }
+
+    #logo-titre h1 {
+        flex: 90%;
+        padding-left: 20px;
+        font-size: 3em;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content:end;
+        flex:25%;
+        width: 95%;
+        height: 25%;
+        line-height: 0px;
+    }
+
+    .nav-item {
+        font-size: 3.3em;
+        padding-left: 10px;
+    }
+
+    #content-body-home {
+        height: 3600px;
+    }
+
+    section h2 {
+        font-size: 4em;
+        margin-bottom: 40px;
+    }
+    section p {
+        font-size:3.5em;
+    }
+    
+    #first-section {
+        margin-top: 100px;
+    }
+
+    #phone-div {
+        position: absolute;
+        top:700px;
+        height: 600px;
+    }
+
+    #second-section {
+        position: absolute;
+        top: 1300px;
+    }
+    
+    #third-section {
+        position: absolute;
+        top: 2100px;
+    }
+    
+    #fourth-section {
+        position: absolute;
+        top: 2900px;
+    }
+
+    #badges {
+        width: 70%;
+        margin-bottom: 60px;
+    }
+
+    footer ul {
+        font-size: 3.5em;
+        line-height: 80px;
+    }
+
+    #social-network {
+        padding-right: 0px;
+    }
+
+    #social-network a {
+        padding-left: 20px;
+    }
+
+    .legal-text {
+        font-size: 3em;
+        line-height: 40px;
+    }
+
+    .legal-text h2 {
+        font-size: 1em;
+    }
+
+    .legal-text h3 {
+        font-size: 1.2em;
+    }
+
+    .titre-page {
+        font-size: 5em;
+        line-height: 70px;
+    }
+}
+
+/* Affichage tablettes base résolution portrait et smartphone paysage*/
+@media screen and (max-width: 1100px) {
+    :root {
+        --main-max-width: 85%;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+    
+    h3 {
+        font-size: 2.5em;
+    }
+    
+    #content-header {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 130px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+    #logo-header {
+        flex: 10%;
+        height: 120px;
+    }
+
+    #logo-titre {
+        flex: 75%;
+        line-height: 0;
+    }
+
+    #logo-titre h1 {
+        flex: 90%;
+        padding-left: 15px;
+        font-size: 2.5em;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content:end;
+        flex:25%;
+        width: 95%;
+        height: 25%;
+        line-height: 0px;
+    }
+
+    .nav-item {
+        font-size: 2.5em;
+        margin-left: 13px;
+    }
+    
+    #connexion {
+        padding-left: 10px;
+    }
+
+    #content-body-home {
+        height: 2800px;
+    }
+
+    section h2 {
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+
+    section p {
+        font-size:2.5em;
+    }
+    
+    #first-section {
+        margin-top: 70px;
+        padding-bottom: 250px;
+    }
+
+    #phone-div {
+        position: absolute;
+        top:600px;
+        height: 400px;
+    }
+
+    #second-section {
+        position: absolute;
+        top: 1000px;
+    }
+    
+    #third-section {
+        position: absolute;
+        top: 1630px;
+    }
+    
+    #fourth-section {
+        position: absolute;
+        top: 2300px;
+    }
+
+    .div-img-left {
+        max-height: 170px;
+        left: -15px;
+    }
+    
+    .div-img-right {
+        max-height: 170px;
+        right: -15px;
+    }
+
+    #badges {
+        width: 70%;
+        margin-bottom: 40px;
+    }
+    
+    #list-footer {
+        padding-left: 0;
+    }
+
+    footer ul {
+        font-size: 2.5em;
+        line-height: 70px;
+    }
+
+    #logo-body {
+        height: 170px;
+    }
+    
+    .legal-text {
+        margin-top: 40px;
+        font-size: 2em;
+        line-height: 30px;
+    }
+
+    .legal-text h2 {
+        font-size: 1em;
+    }
+
+    .legal-text h3 {
+        font-size: 1.2em;
+    }
+
+    .titre-page {
+        font-size: 3.5em;
+    }
+
+    input {
+        width: 80%;
+        height: 40px;
+        font-size: 1.5em;
+    }
+    
+    textarea {
+        width: 80%;
+        height: 200px;
+        font-size: 1.5em;
+    }
+    
+    label {
+        padding-left: 10%;
+        line-height: 0px;
+        font-size: 2.8em;
+        font-weight: bold;
+    }
+    
+    .principal {
+        font-size: 3em;
+        height: 70px;
+        width: 300px;
+    }
+    
+    .secondary {
+        font-size: 3em;
+        height: 70px;
+        width: 300px;
+    }
+}
+
+/* Affichage tablettes base résolution portrait et smartphone paysage*/
+@media screen and (max-width: 767px) {
+    :root {
+        --main-max-width: 90%;
+    }
+    
+    h2 {
+        font-size: 1.3em;
+    }
+    
+    h3 {
+        font-size: 1.5em;
+    }
+
+    #content-header {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 110px;
+        padding-top: 5px;
+        padding-bottom: 0px;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content:end;
+        width: 95%;
+        height: 25%;
+        line-height: 0px;
+    }
+
+    .nav-item {
+        font-size: 2em;
+        margin-left: 13px;
+    }
+    
+    #inscription {
+        padding-left: 0px;
+    }
+
+    #logo-titre {
+        flex:75%;
+    }
+
+    #logo-header {
+        flex: 10%;
+        height: 70px;
+    }
+
+    #logo-titre h1 {
+        flex: 90%;
+        padding-left: 15px;
+        font-size: 1.8em;
+        line-height: 0px;
+    }
+
+    #content-body-home {
+        height: 2100px;
+    }
+
+    section h2 {
+        font-size: 2em;
+        margin-bottom: 0px;
+        line-height: 40px;
+    }
+
+    section p {
+        font-size:1.6em;
+        line-height: 25px;
+        padding-top: 20px;
+    }
+    
+    #first-section {
+        margin-top: 40px;
+        padding-bottom: 170px;
+    }
+
+    #phone-div {
+        position: absolute;
+        top: 440px;
+        height: 280px;
+    }
+
+    #second-section {
+        position: absolute;
+        top: 700px;
+    }
+    
+    #third-section {
+        position: absolute;
+        top: 1180px;
+    }
+    
+    #fourth-section {
+        position: absolute;
+        top: 1670px;
+    }
+
+    .div-img-left {
+        max-height: 110px;
+        left: -7px;
+    }
+    
+    .div-img-right {
+        max-height: 110px;
+        right: -7px;
+    }
+
+    #badges {
+        width: 80%;
+        margin-bottom: 30px;
+    }
+
+    #list-footer {
+        padding-left: 0;
+    }
+
+    footer ul {
+        font-size: 1.6em;
+        line-height: 40px;
+    }
+
+    #social-network {
+        padding-right: 0px;
+    }
+
+    #social-network a {
+        padding-left: 5px;
+    }
+
+    #social-network img {
+        height: 50px;
+    }
+
+    #logo-body {
+        height: 100px;
+        margin-bottom: 25px;
+    }
+    
+    .legal-text {
+        margin-top: 0px;
+        font-size: 1.5em;
+        line-height: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .legal-text h1 {
+        font-size: 2em;
+        text-align: center;
+        line-height: 25px;
+    }
+
+
+    .legal-text h2 {
+        font-size: 0.7em;
+        line-height: 25px;
+    }
+
+    .legal-text h3 {
+        font-size: 1em;
+    }
+
+    .titre-page {
+        margin-bottom: 30px;
+        font-size: 2em;
+        line-height: 30px;
+    }
+
+    input {
+        width: 85%;
+        height: 30px;
+        font-size: 0.8em;
+    }
+    
+    textarea {
+        width: 85%;
+        height: 150px;
+        font-size: 1.1em;
+    }
+    
+    label {
+        padding-left: 7%;
+        line-height: 0px;
+        font-size: 1.7em;
+        font-weight: bold;
+
+    }
+    
+    .principal {
+        font-size: 1.7em;
+        height: 50px;
+        width: 200px;
+    }
+    
+    .secondary {
+        font-size: 1.7em;
+        height: 50px;
+        width: 200px;
+    }
+}
