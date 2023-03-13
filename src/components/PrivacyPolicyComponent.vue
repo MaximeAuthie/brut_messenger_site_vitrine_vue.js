@@ -17,7 +17,7 @@
                 </p>
                 <p>
                     Cette politique complète les mentions légales et les Conditions Générales d’Utilisation consultables par les utilisateurs à l’adresse suivante :  
-                    <a href="conditions-utilisation.html">ICI</a>
+                    <router-link to="/terms-of-use">ICI</router-link>
                 </p>
                 <h2>ARTICLE 2 : PRINCIPES RELATIFS À LA COLLECTE ET AU TRAITEMENT DES DONNÉES PERSONNELLES</h2>
                 <p>
@@ -95,7 +95,7 @@
                     La société est susceptible de conserver certaines données à caractère personnel au-delà des délais annoncés ci-dessus afin de remplir ses obligations légales ou réglementaires.
                 </p>
                 <h3>Article 3.3 : Hébergement des données</h3>
-                <p>
+                <!-- <p>
                     Le site BRUT MESSENGER est hébergé par :
                     <p class="p-center">
                         OVH<br>
@@ -105,7 +105,7 @@
                         N° TVA : FR 22 424 761 419<br>
                         Siège social : 2 rue Kellermann - 59100 Roubaix - France<br>
                     </p>
-                </p>
+                </p> -->
                 <h3>Article 3.4 : Transmission des données à des tiers</h3>
                 <p>
                     Aucune donnée personnelle ne sera jamais transmise à aucun tier quel qu’il soit.
@@ -118,13 +118,13 @@
                     Par mail : en utilisant le formulaire de contact du site.
                 </p>
                 <h3>Article 4.2 : Le délégué à la protection des données</h3>
-                <p>
+                <!-- <p>
                     Le délégué à la protection des données de l’entreprise ou du responsable est :
                     <p class="p-center">
                         M. Jean-Jacques CONFIDENTIEL<br>
                         contact-donnees-personnelles@brut-messenger.fr
                     </p>
-                </p>
+                </p> -->
                 <p>
                     Si vous estimez, après nous avoir contactés, que vos droits “Informatique et Libertés”, ne sont pas respectés, vous pouvez adresser une information à la CNIL. 
                 </p>
@@ -141,12 +141,12 @@
                         <li>Droit de saisir l’autorité de contrôle compétente (article 77 du RGPD).  </li>
                     </ul>
                 </p>
-                <p>
+                <!-- <p>
                     Pour exercer vos droits, veuillez adresser votre courrier à : <br>
                     <p class="p-center">
                         BRUT MESSENGER, 32 chemin de Lapparou, 31200 TOULOUSE ou par mail à contact@brut-messenger.fr
                     </p>
-                </p>
+                </p> -->
                 <p>
                     Afin que le responsable du traitement des données puisse faire droit à sa demande, l’utilisateur peut être tenu de lui communiquer certaines informations telles que : ses noms et prénoms, son adresse e-mail ainsi que son numéro de compte, d’espace personnel ou d’abonné.<br>
                     Consultez le site cnil.fr pour plus d’informations sur vos droits. 

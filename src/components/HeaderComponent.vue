@@ -8,7 +8,7 @@
                 <h1>BRUT MESSENGER</h1>
             </div>
             <nav>
-                <router-link to='/home#fourth-section' class="nav-item">Télécharger l'app</router-link> //! Trouver comment rediriger vers l'id
+                <router-link to='/home#fourth-section' class="nav-item">Télécharger l'app</router-link>
                 <router-link to="/register"  class="nav-item">Inscription</router-link>
             </nav>
         </div>

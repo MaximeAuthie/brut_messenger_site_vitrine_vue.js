@@ -332,10 +332,12 @@ footer ul {
 
 #contact-form {
     background-color: #F55A4F;
+    min-height: 500px;
 }
 
 #register-form {
     background-color: #FCA311;
+    min-height: 500px;
 }
 
 form  { 
