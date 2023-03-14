@@ -99,6 +99,10 @@ nav {
 }
 
 /* BODY */
+#return-icon {
+    max-height: 45px;
+    max-width: 45px;
+}
 
 .titre-page {
     font-size: 3em;
@@ -331,7 +335,7 @@ footer ul {
 }
 
 #contact-form {
-    background-color: #F55A4F;
+    background-color: #6B9BFA;
     min-height: 500px;
 }
 
@@ -374,6 +378,18 @@ label {
     line-height: 0px;
     font-size: 2em;
     font-weight: bold;
+}
+
+.errorMsg {
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    font-size: 1.2em;
+    font-family: 'Space Mono', monospace;
+}
+
+.badInput {
+    border: 4px solid #F55A4F;
+    box-shadow: 7px 7px 0px black;
 }
 
 .principal {
