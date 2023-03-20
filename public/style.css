@@ -5,10 +5,14 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     font-family: dongle, sans-serif;
     background-color: #FFFEF8;
     padding: 0px;
     margin: 0px;
+    
 }
 
 h1 {
@@ -54,8 +58,8 @@ header {
 #logo-titre {
     display: flex;
     flex-direction: row;
-    flex: 65%;
     justify-content: space-between;
+    flex: 72%;
     align-items: center;
 }
 
@@ -78,7 +82,7 @@ header {
 nav {
     display: flex;
     flex-direction: row;
-    flex : 35%;
+    flex : 33%;
     justify-content: space-between;
     align-items: center;
 }
@@ -94,7 +98,7 @@ nav {
     cursor: pointer;
 }
 
-#inscription {
+.inscription {
     color: #FCA311;
 }
 
@@ -102,6 +106,12 @@ nav {
 #return-icon {
     max-height: 45px;
     max-width: 45px;
+}
+
+#not-found {
+    background-color: #F55A4F;
+    padding-top: 150px;
+    padding-bottom: 150px;
 }
 
 .titre-page {
@@ -291,6 +301,7 @@ section span {
 }
 
 footer {
+    width: 100%;
     background-color: #23A093;
 }
 
@@ -360,6 +371,7 @@ input {
     box-shadow: 7px 7px 0px black;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 15px;
     font-size: 1.2em;
 }
 
@@ -374,7 +386,7 @@ textarea {
 }
 
 label {
-    padding-left: 25%;
+    margin-left: 25%;
     line-height: 0px;
     font-size: 2em;
     font-weight: bold;
@@ -385,6 +397,10 @@ label {
     font-weight: bold;
     font-size: 1.2em;
     font-family: 'Space Mono', monospace;
+}
+
+.errorMsgImput {
+    margin-left: 25%;
 }
 
 .badInput {
@@ -551,7 +567,6 @@ label {
         width: 75%;
         height: 70px;
         font-size: 2.5em;
-        margin-bottom: 20px;
     }
     
     textarea {
@@ -561,11 +576,8 @@ label {
     }
     
     label {
-        padding-left: 12%;
-        line-height: 0px;
+        margin-left: 12,5%;
         font-size: 3.7em;
-        font-weight: bold;
-
     }
     
     .principal {
@@ -582,9 +594,9 @@ label {
 }
 
 /*Affichage portrait tablettes haute résolution*/
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1600px) {
     :root {
-        --main-max-width: 85%;
+        --main-max-width: 80%;
     }
     
     h2 {
@@ -678,8 +690,8 @@ label {
     }
 
     footer ul {
-        font-size: 3.5em;
-        line-height: 80px;
+        font-size: 2.5em;
+        line-height: 60px;
     }
 
     #social-network {
@@ -704,8 +716,36 @@ label {
     }
 
     .titre-page {
-        font-size: 5em;
+        font-size: 3em;
         line-height: 70px;
+    }
+
+    input {
+        width: 80%;
+        height: 40px;
+        font-size: 2em;
+    }
+    
+    textarea {
+        width: 80%;
+        height: 250px;
+    }
+    
+    label {
+        margin-left: 10%;
+        font-size: 2.5em;
+    }
+
+    .principal {
+        font-size: 2.5em;
+        height: 50px;
+        width: 250px;
+    }
+    
+    .secondary {
+        font-size: 2.5em;
+        height: 50px;
+        width: 250px;
     }
 }
 
@@ -865,10 +905,8 @@ label {
     }
     
     label {
-        padding-left: 10%;
-        line-height: 0px;
+        margin-left: 10%;
         font-size: 2.8em;
-        font-weight: bold;
     }
     
     .principal {
@@ -918,7 +956,7 @@ label {
 
     .nav-item {
         font-size: 2em;
-        margin-left: 13px;
+        margin-left: 2%;
     }
     
     #inscription {
@@ -1057,7 +1095,7 @@ label {
     input {
         width: 85%;
         height: 30px;
-        font-size: 0.8em;
+        font-size: 0.9em;
     }
     
     textarea {
@@ -1067,15 +1105,23 @@ label {
     }
     
     label {
-        padding-left: 7%;
+        margin-left: 5%;
+        font-size: 1.7em;
         line-height: 0px;
-        font-size: 1.7em;
-        font-weight: bold;
-
+        margin-top: 0px;
     }
-    
+
+    .errorMsg {
+        font-size: 0.9em;
+        font-family: 'Space Mono', monospace;
+    }
+
+    .errorMsgImput {
+        margin-left: 5%;
+    }
+
     .principal {
-        font-size: 1.7em;
+        font-size: 2em;
         height: 50px;
         width: 200px;
     }
@@ -1084,5 +1130,17 @@ label {
         font-size: 1.7em;
         height: 50px;
         width: 200px;
+    }
+}
+
+/* Affichage tablettes base résolution portrait et smartphone paysage*/
+@media screen and (min-height: 1500px) {
+    #content-body{
+        height: 1300px;
+    }
+}
+@media screen and (min-height: 2000px) {
+    #content-body{
+        height: 2000px;
     }
 }

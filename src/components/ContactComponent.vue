@@ -1,19 +1,32 @@
 <template>
     <router-link to="/home"><img src="MEDIAS/back.png" id="return-icon" alt="Retour à l'accueil du site" title="Retour à l'accueil du site"></router-link>
+    
     <div id="content-body">
         <div id="contact-form">
             <h1 class="titre-page">Formulaire de contact</h1><br>
             <form v-if="!submited" @submit.prevent="">
-                <label for="first-name">Prénom</label><span v-if="isEmptyFirstName" class="errorMsg">   Veuillez saisir votre prénom.</span><br>
-                <input v-model="messageData.firstName" :class="{badInput: isEmptyFirstName}" id="first-name" name="first-name" type="text"><br>
-                <label for="name">Nom</label><span v-if="isEmptyLastName" class="errorMsg">   Veuillez saisir votre nom.</span><br>
-                <input v-model="messageData.lastName" :class="{badInput: isEmptyLastName}" id="name" name="name" type="text"><br>
-                <label for="email">Adresse e-mail</label><span v-if="isEmptyMail" class="errorMsg">   Veuillez saisir votre adresse mail.</span><span v-if="!isMailCorrect" class="errorMsg">   Adresse mail incorrecte.</span><br>
-                <input v-model="messageData.mail" :class="{badInput : isEmptyMail}" id="email" name="email" type="email"><br>
-                <label for="subjet">Sujet</label><span v-if="isEmptySubject" class="errorMsg">   Veuillez saisir le l'objet de votre message.</span><br>
-                <input v-model="messageData.msgSubject" :class="{badInput: isEmptySubject}" id="subject" name="subject" type="text"><br>
-                <label for="message">Message</label><span v-if="isEmptyMessage" class="errorMsg">   Veuillez saisir un message.</span><br>
-                <textarea v-model="messageData.message" :class="{badInput: isEmptyMessage}" id="message" name="message"> Saisir votre message ici </textarea><br>
+
+                <label for="first-name">Prénom</label>
+                <input v-model="messageData.firstName" :class="{badInput: isEmptyFirstName}" @keyup="checkImputKeyUp" id="first-name" name="first-name" type="text">
+                <p v-if="isEmptyFirstName" class="errorMsg errorMsgImput">Veuillez saisir votre prénom.</p>
+
+                <label for="name">Nom</label>
+                <input v-model="messageData.lastName" :class="{badInput: isEmptyLastName}" @keyup="checkImputKeyUp" id="name" name="name" type="text">
+                <p v-if="isEmptyLastName" class="errorMsg errorMsgImput">Veuillez saisir votre nom.</p>
+
+                <label for="email">Adresse e-mail</label>
+                <input v-model="messageData.mail" :class="{badInput : isEmptyMail || !isMailCorrect}" @keyup="checkImputKeyUp" id="email" name="email" type="email">
+                <p v-if="isEmptyMail" class="errorMsg errorMsgImput">Veuillez saisir votre adresse mail.</p>
+                <p v-if="!isMailCorrect" class="errorMsg errorMsgImput">Adresse mail incorrecte.</p>
+
+                <label for="subjet">Sujet</label>
+                <input v-model="messageData.msgSubject" :class="{badInput: isEmptySubject}" @keyup="checkImputKeyUp" id="subject" name="subject" type="text">
+                <p v-if="isEmptySubject" class="errorMsg errorMsgImput">Veuillez saisir le l'objet de votre message.</p>
+
+                <label for="message">Message</label>
+                <textarea v-model="messageData.message" :class="{badInput: isEmptyMessage}" @keyup="checkImputKeyUp" id="message" name="message">Saisir votre message ici</textarea>
+                <p v-if="isEmptyMessage" class="errorMsg errorMsgImput">Veuillez saisir un message.</p>
+
                 <input @click="submitMessage" class="principal" value="Envoyer">
             </form>
             <h2 v-else>Votre message a bien été envoyé!</h2>
@@ -44,13 +57,13 @@ export default {
     },
     methods: {
         submitMessage() {
-            this.checkImput();
+            this.checkImputSubmit();
             this.checkMail();
             if (this.emptyImput == false && this.isMailCorrect == true) {
                 this.submited=true;
             }  
         },
-        checkImput() {
+        checkImputSubmit() {
             this.resetIsEmptyData();
             if (this.messageData.firstName == '') {
                 this.isEmptyFirstName= true;
@@ -71,6 +84,23 @@ export default {
             if (this.messageData.message == '') {
                 this.isEmptyMessage= true;
                 this.emptyImput= true;
+            }
+        },
+        checkImputKeyUp() { // Vérifie si le champs est remplis au moment où l'utilisateur saisi dans un champs
+            if (this.messageData.firstName != '') {
+                this.isEmptyFirstName= false;
+            } 
+            if (this.messageData.lastName != '') {
+                this.isEmptyLastName= false;
+            } 
+            if (this.messageData.mail != '') {
+                this.isEmptyBirthday= false;
+            } 
+            if (this.userData.msgSubject != '') {
+                this.isEmptyMail= false;
+            } 
+            if (this.userData.message != '') {
+                this.isEmptyPassword= false;
             }
         },
         resetIsEmptyData() {

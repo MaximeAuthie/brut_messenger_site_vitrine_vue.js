@@ -9,7 +9,7 @@
             </div>
             <nav>
                 <router-link to='/home#fourth-section' class="nav-item">Télécharger l'app</router-link>
-                <router-link to="/register"  class="nav-item">Inscription</router-link>
+                <router-link to="/register"  class="nav-item inscription">Inscription</router-link>
             </nav>
         </div>
     </header>
