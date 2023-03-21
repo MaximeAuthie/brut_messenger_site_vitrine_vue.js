@@ -1,18 +1,17 @@
 /* GENERAL */
 
 :root {
-    --main-max-width:1100px;
+    --main-max-width:1050px;
 }
 
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     font-family: dongle, sans-serif;
     background-color: #FFFEF8;
     padding: 0px;
     margin: 0px;
-    
 }
 
 h1 {
@@ -47,7 +46,7 @@ header {
     display: flex;
     flex-direction: row;
     width: var(--main-max-width);
-    height: 130px;
+    height: 110px;
     margin-left: auto;
     margin-right: auto;
     align-items: center;
@@ -59,13 +58,13 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    flex: 72%;
+    flex: 70%;
     align-items: center;
 }
 
 #logo-header {
     flex: 10%;
-    height: 110px;
+    height: 105px;
 }
 
 #logo-titre h1 {
@@ -82,7 +81,7 @@ header {
 nav {
     display: flex;
     flex-direction: row;
-    flex : 33%;
+    flex : 35%;
     justify-content: space-between;
     align-items: center;
 }
@@ -96,10 +95,12 @@ nav {
     -webkit-text-stroke-color: black;
     text-shadow: 2px 2px 0px black;
     cursor: pointer;
+    
 }
 
 .inscription {
     color: #FCA311;
+    margin-left: 5%;
 }
 
 /* BODY */
@@ -137,6 +138,7 @@ section h2 {
     display: flex;
     flex-direction: column;
     width: var(--main-max-width);
+    min-height: 77vh;
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 80px;
@@ -439,6 +441,65 @@ label {
     font-family: 'Dongle', sans-serif;
     cursor: pointer;
 }
+/*Affichage portrait tablettes très haute résolution*/
+@media screen and (min-width:2000px) {
+    :root {
+        --main-max-width: 1500px;
+    }
+    
+    #content-header {
+
+        width: var(--main-max-width);
+        height: 200px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    #logo-titre {
+        flex: 70%;
+    }
+    
+    #logo-header {
+        flex: 10%;
+        height: 180px;
+    }
+    
+    #logo-titre h1 {
+        font-size: 5em;
+    }
+    
+    #img-logo {
+        max-height: 100%;
+    }
+    
+    nav {
+        flex : 30%;
+    }
+    
+    .nav-item {
+        font-size: 3.2em;
+    }
+
+    #content-body-home {
+        width: var(--main-max-width);
+        height: 4000px;
+    }
+
+    #content-body {
+        width: var(--main-max-width);
+    }
+    #second-section {
+        top: 1020px;
+    }
+    
+    #third-section {
+        top: 1900px;
+    }
+    
+    #fourth-section {
+        top: 2800px;
+    }
+}
 
 /*Affichage portrait tablettes très haute résolution*/
 @media screen and (max-width: 1900px) {
@@ -493,8 +554,9 @@ label {
         font-size: 4.3em;
     }
 
-    #inscription {
-        padding-left: 40px;
+    .inscription {
+        color: #FCA311;
+        margin-left: 5%;
     }
 
     #content-body-home {
@@ -629,23 +691,23 @@ label {
     #logo-titre h1 {
         flex: 90%;
         padding-left: 20px;
-        font-size: 3em;
+        font-size: 4em;
     }
 
     nav {
         display: flex;
         flex-direction: row;
-        justify-content:end;
-        flex:25%;
+        justify-content: end;
+        flex: 25%;
         width: 95%;
-        height: 25%;
         line-height: 0px;
     }
 
     .nav-item {
-        font-size: 3.3em;
-        padding-left: 10px;
+        font-size: 3.5em;
+        margin-left: 2%;
     }
+
 
     #content-body-home {
         height: 3600px;
@@ -794,13 +856,12 @@ label {
         justify-content:end;
         flex:25%;
         width: 95%;
-        height: 25%;
         line-height: 0px;
     }
 
     .nav-item {
         font-size: 2.5em;
-        margin-left: 13px;
+        /* margin-left: 20px; */
     }
     
     #connexion {
@@ -950,17 +1011,12 @@ label {
         flex-direction: row;
         justify-content:end;
         width: 95%;
-        height: 25%;
         line-height: 0px;
     }
 
     .nav-item {
         font-size: 2em;
-        margin-left: 2%;
-    }
-    
-    #inscription {
-        padding-left: 0px;
+        margin-left: 4%;
     }
 
     #logo-titre {
@@ -1133,7 +1189,7 @@ label {
     }
 }
 
-/* Affichage tablettes base résolution portrait et smartphone paysage*/
+/* Affichage tablettes base résolution portrait et smartphone paysage
 @media screen and (min-height: 1500px) {
     #content-body{
         height: 1300px;
@@ -1143,4 +1199,4 @@ label {
     #content-body{
         height: 2000px;
     }
-}
+} */
