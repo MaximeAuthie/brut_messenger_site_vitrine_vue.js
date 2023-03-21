@@ -27,6 +27,11 @@ const routes =  [
     name: "terms-of-use",
     component: () => import("./components/TermsOfUseComponent")
 },
+{// Route vers les la réinitialisation du MDP
+    path: "/forgot-password",
+    name: "forgot-password",
+    component: () => import("./components/ForgotPasswordComponent")
+},
 { // Route vers la page qui sert si la page demandée n'est pas trouvée
     name:'NotFound',
     path:'/:pathMatch(.*)', // Redirige vers NotFound.vue si la route demandée n'est pas répertoriée
