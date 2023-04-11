@@ -3,7 +3,7 @@
   <router-link to="/home"><img src="MEDIAS/back.png" alt="Retour à l'accueil du site" id="return-icon" title="Retour à l'accueil du site"/></router-link>
 
   <div id="content-body">
-    <div id="register-form">
+    <div id="register-form" @click="checkImputKeyUp">
       <h1 class="titre-page">Inscription à Brut Messenger</h1>
       <form v-if="!submited" @submit.prevent="">
 
@@ -11,8 +11,8 @@
         <input v-model="userData.firstName" :class="{badInput: isEmptyFirstName}" @keyup="checkImputKeyUp" id="first-name" name="first-name" type="text" />
         <p v-if="isEmptyFirstName" class="errorMsg errorMsgImput">Veuillez saisir votre prénom</p>
 
-        <label for="name">Nom</label>
-        <input v-model="userData.lastName" :class="{badInput: isEmptyLastName}" @keyup="checkImputKeyUp" id="name" name="name" type="text" />
+        <label for="last-name">Nom</label>
+        <input v-model="userData.lastName" :class="{badInput: isEmptyLastName}" @keyup="checkImputKeyUp" id="last-name" name="last-name" type="text" />
         <p v-if="isEmptyLastName" class="errorMsg errorMsgImput">Veuillez saisir votre nom</p>
 
         <label for="birth">Date de naissance</label>
@@ -128,8 +128,9 @@
               this.isEmptyFirstName= false;
               this.isEmptyLastName= false;
               this.isEmptyMail= false;
-              this.isEmptySubject= false;
-              this.isEmptyMessage= false;
+              this.isEmptyBirthday= false;
+              this.isEmptyPassword= false;
+              this.isEmptyPassword= false; 
           },
           checkPassword() { // Vérifie si les deux password sont identiques
               this.passwordError = false;
