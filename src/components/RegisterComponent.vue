@@ -34,15 +34,19 @@
 
         <p v-if="passwordError" class="errorMsg p-center">Les deux mots de passe saisis ne sont pas identiques!</p>
 
+        <p v-if="serverError" class="errorMsg p-center">{{ serverResponse }}</p>
+
         <input @click="submitRegistration" class="principal"  value="Inscriptions" />
       </form>
-      <h2 v-else>Félicitations! Votre compte à bien été créé!</h2>
+      <h2 v-else>{{ serverResponse }}</h2>
     </div>
   </div>
 
 </template>
 
 <script>
+  import UserDataService from '@/services/UserDataService';
+
   export default {
     data() {
         return {
@@ -58,22 +62,49 @@
           submited: false,
           isEmptyFirstName: false,
           isEmptyLastName: false,
-          isEmptyBirthday:false,
+          isEmptyBirthday: false,
           isEmptyMail: false,
           isEmptyPassword: false,
           isEmptyRePassword: false,
           emptyImput: false,
           passwordError: false,
-          isMailCorrect:true,
+          isMailCorrect: true,
+          serverResponse: '',
+          serverError: false
         }
     },
     methods: {
       submitRegistration() {
+        //? On exécute les fonctions de vérification
         this.checkImputSubmit(); // Vérifie si tous les champs sont remplis
         this.checkPassword(); // Vérifie si les deux password sont identiques
         this.checkMail(); // Vérifie si le format du mail est correct
+
+         //? On vérifie que toutes les conditions préalables sont respectées
         if (this.emptyImput==false && this.passwordError==false && this.isMailCorrect==true) {
-          this.submited=true;
+
+          //? On construit l'objet à passer en paramètre de la méthode addUser()
+          const user = {
+            firstName: this.userData.firstName,
+            lastName: this.userData.lastName,
+            birthday: this.userData.birthday,
+            email: this.userData.mail,
+            password: this.userData.password
+          }
+
+          //? On appelle la métode addUser du service UserDataService
+          UserDataService.addUser(user).then (message => {
+            console.log(message);
+            this.serverResponse = message.text;
+
+            if (message.code === 200) {
+              this.submited = true;
+            } else {
+              this.submited = false;
+              this.serverError = true;
+            }
+          });
+          
         }
       },
       checkImputSubmit() { // Vérifie si tous les champs sont remplis
