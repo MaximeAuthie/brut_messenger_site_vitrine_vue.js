@@ -5,37 +5,37 @@ const routes =  [
     path: "/",
     alias: "/home",
     name: "home",
-    component: () => import("./components/HomeComponent")
+    component: () => import("./views/HomeComponent")
 },
 {// Route vers le formulaire d'inscription
     path: "/register",
     name: "register",
-    component: () => import("./components/RegisterComponent")
+    component: () => import("./views/RegisterComponent")
 },
 {// Route vers le formulaire de contact
     path: "/contact",
     name: "contact",
-    component: () => import("./components/ContactComponent")
+    component: () => import("./views/ContactComponent")
 },
 {// Route vers la politique de confidentialité
     path: "/privacy-policy",
     name: "privacy-policy",
-    component: () => import("./components/PrivacyPolicyComponent")
+    component: () => import("./views/PrivacyPolicyComponent")
 },
 {// Route vers les conditions d'utilisation
     path: "/terms-of-use",
     name: "terms-of-use",
-    component: () => import("./components/TermsOfUseComponent")
+    component: () => import("./views/TermsOfUseComponent")
 },
 {// Route vers les la réinitialisation du MDP
     path: "/forgot-password",
     name: "forgot-password",
-    component: () => import("./components/ForgotPasswordComponent")
+    component: () => import("./views/ForgotPasswordComponent")
 },
 { // Route vers la page qui sert si la page demandée n'est pas trouvée
     name:'NotFound',
     path:'/:pathMatch(.*)', // Redirige vers NotFound.vue si la route demandée n'est pas répertoriée
-    component: () => import("./components/NotFoundComponent.vue")
+    component: () => import("./views/NotFoundComponent.vue")
 },
 ];
 

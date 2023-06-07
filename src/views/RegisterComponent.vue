@@ -92,7 +92,7 @@
             password: this.userData.password
           }
 
-          //? On appelle la métode addUser du service UserDataService
+          //? On appelle la métode addUser() du service UserDataService
           UserDataService.addUser(user).then (message => {
             console.log(message);
             this.serverResponse = message.text;
