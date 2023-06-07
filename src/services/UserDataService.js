@@ -14,7 +14,7 @@ class UserDataService {
 
         switch (response.status) {
             case 200:
-                message = {code: response.status, text: 'Félicitations ' + userData.firstName + '. Votre compte a bien été créé!'};
+                message = {code: response.status, text: 'Félicitations ' + userData.firstName + '. Votre compte a bien été créé! Un mail de confirmation vient de vous être envoyé.'};
                 break;
             case 206:
                 message = {code: response.status, text: 'L\'adresse mail ' + userData.email + ' est déjà associée à un autre compte.'};
