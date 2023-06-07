@@ -37,6 +37,11 @@ const routes =  [
     path:'/:pathMatch(.*)', // Redirige vers NotFound.vue si la route demandée n'est pas répertoriée
     component: () => import("./views/NotFoundComponent.vue")
 },
+{ // Route vers la page qui gère les retours de l'api d'activation de compte
+    path:'/account-activation/:status',
+    name: "account-activation",
+    component: () => import("./views/AccountActivationView.vue")
+},
 ];
 
 const router = createRouter({
