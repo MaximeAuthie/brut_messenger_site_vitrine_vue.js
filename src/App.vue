@@ -1,6 +1,6 @@
 <template>
   <header-component></header-component>
-  <RouterView />
+  <router-view></router-view>
   <footer-component></footer-component>
 </template>
 

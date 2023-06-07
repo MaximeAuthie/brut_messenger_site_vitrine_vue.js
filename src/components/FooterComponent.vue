@@ -10,8 +10,8 @@
                 </ul>
             </div>
             <div id="social-network">
-                <a href="https://www.facebook.com/" target="_blank" title="Page Facebook de BRUT MESSENGER"><img alt="icone Facebook" src="medias/facebook.png"></a>
-                <a href="https://www.instagram.com/" target="_blank" title="Page Instagram de BRUT MESSENGER"><img alt="icone instagram" src="medias/instagram.png"></a>
+                <a href="https://www.facebook.com/" target="_blank" title="Page Facebook de BRUT MESSENGER"><img alt="icone Facebook" src="../../public/medias/facebook.png"></a>
+                <a href="https://www.instagram.com/" target="_blank" title="Page Instagram de BRUT MESSENGER"><img alt="icone instagram" src="../../public/medias/instagram.png"></a>
             </div>
         </div>
     </footer>

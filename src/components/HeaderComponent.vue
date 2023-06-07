@@ -3,7 +3,7 @@
         <div id="content-header">
             <div id="logo-titre">
                 <div id="logo-header">
-                    <router-link  to="/home"><img id ="img-logo" alt="Accueil du site" title="Retour à l'accueil du site" src="medias/LOGO_ROUND_YELLOW.png"></router-link>
+                    <router-link  to="/home"><img id ="img-logo" alt="Accueil du site" title="Retour à l'accueil du site" src="../../public/medias/LOGO_ROUND_YELLOW.png"></router-link>
                 </div>
                 <h1>BRUT MESSENGER</h1>
             </div>

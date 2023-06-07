@@ -1,9 +1,9 @@
 <template>
-    <router-link to="/home"><img src="MEDIAS/back.png" id="return-icon" alt="Retour à l'accueil du site" title="Retour à l'accueil du site"></router-link>
+    <router-link to="/home"><img src="../../public/medias/back.png" id="return-icon" alt="Retour à l'accueil du site" title="Retour à l'accueil du site"></router-link>
     
     <div id="content-body">
         <div class="legal-text">
-            <h1>Conditions d'utilisation</h1>
+            <h1 class="titre-page">Conditions d'utilisation</h1>
             <h2>ARTICLE 1 : OBJET</h2>
             <p>
                 Les présentes « conditions générales d'utilisation » ont pour objet l'encadrement juridique de l’utilisation du site BRUT MESSENGER et de ses services. <br>

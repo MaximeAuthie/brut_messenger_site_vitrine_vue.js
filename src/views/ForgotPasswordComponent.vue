@@ -1,5 +1,5 @@
 <template>
-    <router-link to="/home"><img src="MEDIAS/back.png" id="return-icon" alt="Retour à l'accueil du site" title="Retour à l'accueil du site"></router-link>
+    <router-link to="/home"><img src="../../public/medias/back.png" id="return-icon" alt="Retour à l'accueil du site" title="Retour à l'accueil du site"></router-link>
     
     <div id="content-body">
         <div id="contact-form">

@@ -1,6 +1,6 @@
 <template>
 
-    <router-link to="/home"><img src="MEDIAS/back.png" alt="Retour à l'accueil du site" id="return-icon" title="Retour à l'accueil du site"/></router-link>
+    <router-link to="/home"><img src="../../public/medias/back.png" alt="Retour à l'accueil du site" id="return-icon" title="Retour à l'accueil du site"/></router-link>
   
     <div id="content-body">
       <div id="not-found">
