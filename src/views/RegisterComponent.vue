@@ -9,36 +9,36 @@
 
         <label for="first-name">Prénom</label><br />
         <input v-model="userData.firstName" :class="{badInput: isEmptyFirstName}" @keyup="checkImputKeyUp" id="first-name" name="first-name" type="text" />
-        <p v-if="isEmptyFirstName" class="errorMsg errorMsgImput">Veuillez saisir votre prénom</p>
+        <p v-if="isEmptyFirstName" class="errorMsg errorMsgImput" id="firstNameEmpty">Veuillez saisir votre prénom</p>
 
         <label for="last-name">Nom</label>
         <input v-model="userData.lastName" :class="{badInput: isEmptyLastName}" @keyup="checkImputKeyUp" id="last-name" name="last-name" type="text" />
-        <p v-if="isEmptyLastName" class="errorMsg errorMsgImput">Veuillez saisir votre nom</p>
+        <p v-if="isEmptyLastName" class="errorMsg errorMsgImput" id="lastNameEmpty">Veuillez saisir votre nom</p>
 
         <label for="birth">Date de naissance</label>
         <input v-model="userData.birthday" :class="{badInput: isEmptyBirthday}" @keyup="checkImputKeyUp" id="birth" name="birth" type="date" />
-        <p v-if="isEmptyBirthday" class="errorMsg errorMsgImput">Veuillez saisir votre date de naissance</p>
+        <p v-if="isEmptyBirthday" class="errorMsg errorMsgImput" id="birthdayEmpty">Veuillez saisir votre date de naissance</p>
 
         <label for="email">Adresse e-mail</label>
         <input v-model="userData.mail" :class="{badInput: isEmptyMail || !isMailCorrect}" @keyup="checkImputKeyUp" id="email" name="email" type="email" />
-        <p v-if="isEmptyMail" class="errorMsg errorMsgImput">Veuillez saisir votre adresse mail</p>
-        <p v-if="!isMailCorrect" class="errorMsg errorMsgImput">Adresse mail incorrecte.</p>
+        <p v-if="isEmptyMail" class="errorMsg errorMsgImput" id="emailEmpty">Veuillez saisir votre adresse mail</p>
+        <p v-if="!isMailCorrect" class="errorMsg errorMsgImput" id="emailError">Adresse mail incorrecte.</p>
 
         <label for="password">Mot de passe</label>
         <input v-model="userData.password" :class="{badInput: isEmptyPassword || passwordError}" @keyup="checkImputKeyUp" id="password" name="password" type="password" />
-        <p v-if="isEmptyPassword" class="errorMsg errorMsgImput">Veuillez saisir un mot de passe</p>
+        <p v-if="isEmptyPassword" class="errorMsg errorMsgImput" id="passwordEmpty">Veuillez saisir un mot de passe</p>
 
         <label for="re-password">Ressaisir le mot de passe</label>
         <input v-model="userData.rePassword" :class="{badInput: isEmptyRePassword || passwordError}" @keyup="checkImputKeyUp" id="re-password" name="re-password" type="password"/>
-        <p v-if="isEmptyRePassword" class="errorMsg errorMsgImput">Veuillez ressaisir votre mot de passe</p>
+        <p v-if="isEmptyRePassword" class="errorMsg errorMsgImput" id="rePasswordEmpty">Veuillez ressaisir votre mot de passe</p>
 
-        <p v-if="passwordError" class="errorMsg p-center">Les deux mots de passe saisis ne sont pas identiques!</p>
+        <p v-if="passwordError" class="errorMsg p-center" id="passwordsError">Les deux mots de passe saisis ne sont pas identiques!</p>
 
-        <p v-if="serverError" class="errorMsg p-center">{{ serverResponse }}</p>
+        <p v-if="serverError" class="errorMsg p-center" id="serverError">{{ serverResponse }}</p>
 
         <input @click="submitRegistration" class="principal"  value="Inscriptions" />
       </form>
-      <h2 v-else>{{ serverResponse }}</h2>
+      <h2 v-else id="success">{{ serverResponse }}</h2>
     </div>
   </div>
 
