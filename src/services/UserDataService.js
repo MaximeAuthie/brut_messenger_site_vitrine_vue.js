@@ -19,6 +19,9 @@ class UserDataService {
             case 206:
                 message = {code: response.status, text: 'L\'adresse mail ' + userData.email + ' est déjà associée à un autre compte.'};
                 break;
+            case 422:
+                message = {code: response.status, text: 'Le formal de l\'adresse ' + userData.email + ' n\'est pas correct'};
+                break;
             default:
                 message = {code: response.status, text: 'Erreur de connexion au serveur. Veuillez réessayer plus tard.'};
         }
