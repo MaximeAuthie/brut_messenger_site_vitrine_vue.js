@@ -25,15 +25,19 @@
         <p v-if="!isMailCorrect" class="errorMsg errorMsgImput" id="emailError">Adresse mail incorrecte.</p>
 
         <label for="password">Mot de passe</label>
-        <input v-model="userData.password" :class="{badInput: isEmptyPassword || passwordError}" @keyup="checkImputKeyUp" id="password" name="password" type="password" />
+        <input v-model="userData.password" :class="{badInput: isEmptyPassword || isPasswordsMatch}" @keyup="checkPasswordKeyUp" id="password" name="password" type="password" />
         <p v-if="isEmptyPassword" class="errorMsg errorMsgImput" id="passwordEmpty">Veuillez saisir un mot de passe</p>
 
         <label for="re-password">Ressaisir le mot de passe</label>
-        <input v-model="userData.rePassword" :class="{badInput: isEmptyRePassword || passwordError}" @keyup="checkImputKeyUp" id="re-password" name="re-password" type="password"/>
+        <input v-model="userData.rePassword" :class="{badInput: isEmptyRePassword || isPasswordsMatch}" @keyup="checkPasswordKeyUp" id="re-password" name="re-password" type="password"/>
         <p v-if="isEmptyRePassword" class="errorMsg errorMsgImput" id="rePasswordEmpty">Veuillez ressaisir votre mot de passe</p>
 
-        <p v-if="passwordError" class="errorMsg p-center" id="passwordsError">Les deux mots de passe saisis ne sont pas identiques!</p>
-
+        <p v-if="isPasswordsMatch" class="errorMsg p-center" id="passwordsMatch">Les deux mots de passe saisis ne sont pas identiques!</p>
+        <p v-if="isPasswordError" class="errorMsg p-center" id="passwordError">Le mot de passe doit contenir : </p>
+        <p v-if="!password.containUppercase" class="errorMsg p-center" id="containUppercase">Une lettre majuscule</p>
+        <p v-if="!password.containLowercase" class="errorMsg p-center" id="containLowercase">Une lettre minuscule</p>
+        <p v-if="!password.containNumber" class="errorMsg p-center" id="containNumber">Un chiffre</p>
+        <p v-if="!password.isLongEnough" class="errorMsg p-center" id="isLongEnough">8 caractères minimums</p>
         <p v-if="serverError" class="errorMsg p-center" id="serverError">{{ serverResponse }}</p>
 
         <input @click="submitRegistration" class="principal"  value="Inscriptions" />
@@ -51,26 +55,33 @@
     data() {
         return {
           userData: {
-            firstName: '',
-            lastName: '',
-            name: '',
-            birthday: '',
-            mail: '',
-            password: '',
-            rePassword: '',
+            firstName:        '',
+            lastName:         '',
+            name:             '',
+            birthday:         '',
+            mail:             '',
+            password:         '',
+            rePassword:       '',
           },
-          submited: false,
-          isEmptyFirstName: false,
-          isEmptyLastName: false,
-          isEmptyBirthday: false,
-          isEmptyMail: false,
-          isEmptyPassword: false,
-          isEmptyRePassword: false,
-          emptyImput: false,
-          passwordError: false,
-          isMailCorrect: true,
-          serverResponse: '',
-          serverError: false
+          submited:           false,
+          isEmptyFirstName:   false,
+          isEmptyLastName:    false,
+          isEmptyBirthday:    false,
+          isEmptyMail:        false,
+          isEmptyPassword:    false,
+          isEmptyRePassword:  false,
+          isEmptyImput:       false,
+          isPasswordsMatch:   false,
+          isMailCorrect:      true,
+          serverResponse:     '',
+          serverError:        false,
+          isPasswordError:    false,
+          password : {
+            containUppercase:   true,
+            containLowercase:   true,
+            containNumber :     true,
+            isLongEnough:       true,
+          }
         }
     },
     methods: {
@@ -78,10 +89,10 @@
         //? On exécute les fonctions de vérification
         this.checkImputSubmit(); // Vérifie si tous les champs sont remplis
         this.checkPassword(); // Vérifie si les deux password sont identiques
-        this.checkMail(); // Vérifie si le format du mail est correct
+        this.checkMailFormat(); // Vérifie si le format du mail est correct
 
          //? On vérifie que toutes les conditions préalables sont respectées
-        if (this.emptyImput==false && this.passwordError==false && this.isMailCorrect==true) {
+        if (this.isEmptyImput == false && this.isPasswordsMatch == false && this.isMailCorrect == true && this.isPasswordError == false) {
 
           //? On construit l'objet à passer en paramètre de la méthode addUser()
           const user = {
@@ -104,74 +115,117 @@
               this.serverError = true;
             }
           });
-          
         }
       },
       checkImputSubmit() { // Vérifie si tous les champs sont remplis
               this.resetIsEmptyData(); // Remets tous les booléens à false 
               if (this.userData.firstName == '') {
-                  this.isEmptyFirstName= true;
-                  this.emptyImput= true;
+                  this.isEmptyFirstName = true;
+                  this.isEmptyImput = true;
               }
               if (this.userData.lastName == '') {
-                  this.isEmptyLastName= true;
-                  this.emptyImput= true;
+                  this.isEmptyLastName = true;
+                  this.isEmptyImput = true;
               }
               if (this.userData.birthday == '') {
-                  this.isEmptyBirthday= true;
-                  this.emptyImput= true;
+                  this.isEmptyBirthday = true;
+                  this.isEmptyImput = true;
               }
               if (this.userData.mail == '') {
-                  this.isEmptyMail= true;
-                  this.emptyImput= true;
+                  this.isEmptyMail = true;
+                  this.isEmptyImput = true;
               }
               if (this.userData.password == '') {
-                  this.isEmptyPassword= true;
-                  this.emptyImput= true;
+                  this.isEmptyPassword = true;
+                  this.isEmptyImput = true;
               }
               if (this.userData.rePassword == '') {
-                  this.isEmptyRePassword= true;
-                  this.emptyImput= true;
+                  this.isEmptyRePassword = true;
+                  this.isEmptyImput = true;
               }
           },
           checkImputKeyUp() { // Vérifie si le champs est remplis au moment où l'utilisateur saisi dans un champs
               if (this.userData.firstName != '') {
-                  this.isEmptyFirstName= false;
+                  this.isEmptyFirstName = false;
               } 
               if (this.userData.lastName != '') {
-                  this.isEmptyLastName= false;
+                  this.isEmptyLastName = false;
               } 
               if (this.userData.birthday != '') {
                   this.isEmptyBirthday= false;
               } 
               if (this.userData.mail != '') {
-                  this.isEmptyMail= false;
+                  this.isEmptyMail = false;
               } 
               if (this.userData.password != '') {
-                  this.isEmptyPassword= false;
+                  this.isEmptyPassword = false;
               } 
               if (this.userData.rePassword != '') {
-                  this.isEmptyRePassword= false;
-              } 
+                  this.isEmptyRePassword = false;
+              }
+          },
+          checkPasswordKeyUp() {
+            this.checkImputKeyUp();
+            this.checkPasswordFormat();
           },
           resetIsEmptyData() { // Remets tous les booléens à false 
-              this.emptyImput=false; 
-              this.isEmptyFirstName= false;
-              this.isEmptyLastName= false;
-              this.isEmptyMail= false;
-              this.isEmptyBirthday= false;
-              this.isEmptyPassword= false;
-              this.isEmptyPassword= false; 
+              this.isEmptyImput       = false; 
+              this.isEmptyFirstName   = false;
+              this.isEmptyLastName    = false;
+              this.isEmptyMail        = false;
+              this.isEmptyBirthday    = false;
+              this.isEmptyPassword    = false;
+              this.isEmptyPassword    = false; 
           },
           checkPassword() { // Vérifie si les deux password sont identiques
-              this.passwordError = false;
+              this.isPasswordsMatch  = false;
             if (this.userData.password != this.userData.rePassword) {
-              this.passwordError= true;
+              this.isPasswordsMatch  = true;
             }
           },
-          checkMail() { // Vérifie si le format du mail est correct
+          checkPasswordFormat() {
+
+            //Réinialiser les booléens
+            this.password.containUppercase      = true;
+            this.password.containLowercase      = true;
+            this.password.containNumber         = true;
+            this.password.isLongEnough          = true;
+            this.isPasswordError                = false;
+
+            //Définir les pattern des regex
+            const upperCasePattern          = new RegExp(/[A-Z]/g);
+            const lowerCasePattern          = new RegExp(/[a-z]/g);
+            const numberPattern             = new RegExp(/[0-9]/g);
+            
+            //Vérifier si le mot de passe contient une majuscule
+            if (!upperCasePattern.test(this.userData.password)) {
+              this.password.containUppercase  = false;
+              this.isPasswordError            = true;
+              console.log("contient une majuscule");
+            }
+            //Vérifier si le mot de passe contient une minuscule
+            if (!lowerCasePattern.test(this.userData.password)) {
+              this.password.containLowercase  = false;
+              this.isPasswordError            = true;
+              console.log("contient une minuscule");
+            }
+            //Vérifier si le mot de passe contient un chiffre
+            if (!numberPattern.test(this.userData.password)) {
+              this.password.containNumber     = false;
+              this.isPasswordError            = true;
+              console.log("ne contient pas un chiffre");
+            }
+            //Vérifier la longueur
+            if (this.userData.password.length < 8 ) {
+              this.password.isLongEnough      = false;
+              this.isPasswordError            = true;
+              console.log("ne contient pas 8 caracères");
+            }
+            
+          },
+          checkMailFormat() { // Vérifie si le format du mail est correct
             this.isMailCorrect = true;
-            const pattern = /^[a-z0-9.-]{2,}@+[a-z0-9.-]{2,}$/i;
+            const pattern = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/i);
             if (this.userData.mail != '') {
               if (pattern.test(this.userData.mail)) {
               this.isMailCorrect = true;
