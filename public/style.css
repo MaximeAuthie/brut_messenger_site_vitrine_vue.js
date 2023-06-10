@@ -8,9 +8,7 @@ a {
     text-decoration: none;
 }
 
-a:visited {
-    color: black;
-}
+
 
 body {
     display: flex;
@@ -298,6 +296,10 @@ section span {
     width: 60%;
 }
 
+h2 a:visited {
+    color: black;
+}
+
 /* FOOTER */
 
 #content-footer {
@@ -403,10 +405,11 @@ label {
 }
 
 .errorMsg {
-    color: rgb(255, 0, 0);
+    color: rgb(160, 4, 4);
     font-weight: bold;
-    font-size: 1.2em;
-    font-family: 'Space Mono', monospace;
+    font-size: 2em;
+    line-height: 0.5em;
+    font-family: dongle, sans-serif;
 }
 
 .errorMsgImput {
@@ -424,11 +427,11 @@ label {
     margin-left: auto;
     margin-right: auto;
     font-weight: bold;
-    font-size: 2em;
+    font-size: 2.2em;
     background-color: #F55A4F;
     color: white;
-    height: 50px;
-    width: 220px;
+    height: 45px;
+    width: 200px;
     border-radius: 5px 5px 5px 5px;
     text-align: center;
     font-family: 'Dongle', sans-serif;
@@ -989,6 +992,9 @@ label {
         height: 70px;
         width: 300px;
     }
+    .errorMsgImput {
+        margin-left: 10%;
+    }
 }
 
 /* Affichage tablettes base résolution portrait et smartphone paysage*/
@@ -1176,8 +1182,9 @@ label {
     }
 
     .errorMsg {
-        font-size: 0.9em;
-        font-family: 'Space Mono', monospace;
+        font-size: 1.7em;
+        line-height: 2.5em;
+        font-family: dongle, sans-serif;
     }
 
     .errorMsgImput {
@@ -1196,15 +1203,3 @@ label {
         width: 200px;
     }
 }
-
-/* Affichage tablettes base résolution portrait et smartphone paysage
-@media screen and (min-height: 1500px) {
-    #content-body{
-        height: 1300px;
-    }
-}
-@media screen and (min-height: 2000px) {
-    #content-body{
-        height: 2000px;
-    }
-} */

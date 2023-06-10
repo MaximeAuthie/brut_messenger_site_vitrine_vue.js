@@ -5,7 +5,7 @@
     <div id="content-body">
       <div id="not-found" :style="{backgroundColor : success ? '#23A093' : '#F55A4F'}">
         <h1 class="titre-page" > {{ defineMessage() }} </h1>
-        <h2 ><router-link to="/home" class="home-return">Retour à l'acceuil du site</router-link></h2>
+        <h2 ><router-link to="/home">Retour à l'acceuil du site</router-link></h2>
       </div>
     </div>
   
