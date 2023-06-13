@@ -12,37 +12,40 @@
   </template>
 
   <script>
-  export default {
-    data() {
-        return {
-            url: new URLSearchParams(document.location.href),
-            code : 0,
-            success: false,
-            message: ''
-        }
-    },
-    methods: {
-        defineMessage() {
-            switch (this.code) {
-                case '200':
-                    this.message = "Félicitations! Votre compte a été activé avec succès! Vous pouvez dès maintenant vous connecter sur votre mobile!";
-                    this.success = true;
-                    break;
-                case '206':
-                    this.message = "Le compte a déjà été activé.";
-                    break;
-                case '498':
-                    this.message = "Le délai de validité du lien est dépassé. Un nouveau lien de confirmation vient de vous être envoyé sur l'adresse mail saisie lors de votre inscription";
-                    break;
-                default:
-                    this.message = "Une erreur est survenue lors de l'activation de votre compte. Veuillez réessayer plus tard.";
-                    break;
+    export default {
+        data() {
+            return {
+                code : 0,
+                success: false,
+                message: ''
             }
-            return this.message;
+        },
+            mounted(){
+            this.code = this.$route.params.status;
+        },
+        methods: {
+            defineMessage() {
+                switch (this.code) {
+                    case '200':
+                        this.message = "Félicitations! Votre compte a été activé avec succès! Vous pouvez dès maintenant vous connecter sur votre mobile!";
+                        this.success = true;
+                        break;
+                    case '206':
+                        this.message = "Le compte a déjà été activé.";
+                        break;
+                    case '419':
+                        this.message = "Le délai de validité du lien est dépassé. Un nouveau lien de confirmation vient de vous être envoyé sur l'adresse mail saisie lors de votre inscription";
+                        break;
+                    case '498':
+                        this.message = "Token invalide. Echec de l'activation du compte.";
+                        break;
+                    default:
+                        this.message = "Une erreur est survenue lors de l'activation de votre compte. Veuillez réessayer plus tard.";
+                        break;
+                }
+                return this.message;
+            }
         }
-    },
-    mounted(){
-        this.code = this.$route.params.status;
-    }
+
   }
   </script>
