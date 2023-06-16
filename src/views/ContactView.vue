@@ -4,7 +4,7 @@
     <div id="content-body">
         <div id="contact-form">
             <h1 class="titre-page">Formulaire de contact</h1><br>
-            <form v-if="!submited" @submit.prevent="">
+            <form v-if="!isSubmited" @submit.prevent="">
 
                 <label for="first-name">Prénom</label>
                 <input v-model="messageData.firstName" :class="{badInput: isEmptyFirstName}" @keyup="checkImputKeyUp" id="first-name" name="first-name" type="text">
@@ -19,48 +19,76 @@
                 <p v-if="isEmptyMail" class="errorMsg errorMsgImput">Veuillez saisir votre adresse mail.</p>
                 <p v-if="!isMailCorrect" class="errorMsg errorMsgImput">Adresse mail incorrecte.</p>
 
-                <label for="subjet">Sujet</label>
-                <input v-model="messageData.msgSubject" :class="{badInput: isEmptySubject}" @keyup="checkImputKeyUp" id="subject" name="subject" type="text">
+                <label for="subject">Sujet</label>
+                <input v-model="messageData.subject" :class="{badInput: isEmptySubject}" @keyup="checkImputKeyUp" id="subject" name="subject" type="text">
                 <p v-if="isEmptySubject" class="errorMsg errorMsgImput">Veuillez saisir le l'objet de votre message.</p>
 
                 <label for="message">Message</label>
-                <textarea v-model="messageData.message" :class="{badInput: isEmptyMessage}" @keyup="checkImputKeyUp" id="message" name="message">Saisir votre message ici</textarea>
-                <p v-if="isEmptyMessage" class="errorMsg errorMsgImput">Veuillez saisir un message.</p>
+                <textarea v-model="messageData.content" :class="{badInput: isEmptyMessage}" @keyup="checkImputKeyUp" id="message" name="message">Saisir votre message ici</textarea>
+                <p v-if="isEmptyContent" class="errorMsg errorMsgImput">Veuillez saisir un message.</p>
+
+                <p v-if="serverError" class="errorMsg p-center" id="serverError">{{ serverResponse }}</p>
 
                 <input @click="submitMessage" class="principal" value="Envoyer">
             </form>
-            <h2 v-else>Votre message a bien été envoyé!</h2>
+            <h2 v-else id="success">{{ serverResponse }}!</h2>
         </div> 
     </div>
 </template>
 
 <script>
+import ContactService from '@/services/ContactService';
 export default {
     data() {
         return {
             messageData: {
-                firstName: '',
-                lastName: '',
-                mail: '',
-                msgSubject: '',
-                message: ''
+                firstName:      '',
+                lastName:       '',
+                mail:           '',
+                subject:        '',
+                content:        ''
             },
-            submited: false,
-            isEmptyFirstName: false,
-            isEmptyLastName: false,
-            isEmptyMail: false,
-            isEmptySubject: false,
-            isEmptyMessage: false,
-            emptyImput: false,
-            isMailCorrect: true,
+            isSubmited:         false,
+            isEmptyFirstName:   false,
+            isEmptyLastName:    false,
+            isEmptyMail:        false,
+            isEmptySubject:     false,
+            isEmptyContent:     false,
+            emptyImput:         false,
+            isMailCorrect:      true,
+            serverResponse:     ''
         }
     },
     methods: {
         submitMessage() {
+
+            //? Exécuter les fonctions de vérification des donnée
             this.checkImputSubmit();
             this.checkMail();
+
+            //? Vérifier que toutes les conditions préalables sont respectées
             if (this.emptyImput == false && this.isMailCorrect == true) {
-                this.submited=true;
+                
+                //? Construire l'objet à passer en paramètre de la méthode sendContactMail() du service ContactService
+                const contact = {
+                    firstName:    this.messageData.firstName,
+                    lastName:     this.messageData.lastName,
+                    email:        this.messageData.mail,
+                    subject:      this.messageData.subject,
+                    content:      this.messageData.content
+                    }
+
+                //? Appeller la métode sendContactMail() du service ContactService
+                ContactService.sendContactMail(contact).then(message => {
+                    this.serverResponse = message.text;
+
+                    if (message.code === 200) {
+                        this.isSubmited = true;
+                    } else {
+                        this.isSubmited = false;
+                        this.serverError = true;
+                    }
+                })
             }  
         },
         checkImputSubmit() {
@@ -77,12 +105,12 @@ export default {
                 this.isEmptyMail= true;
                 this.emptyImput= true;
             }
-            if (this.messageData.msgSubject == '') {
+            if (this.messageData.subject == '') {
                 this.isEmptySubject= true;
                 this.emptyImput= true;
             }
-            if (this.messageData.message == '') {
-                this.isEmptyMessage= true;
+            if (this.messageData.content == '') {
+                this.isEmptyContent= true;
                 this.emptyImput= true;
             }
         },
@@ -111,14 +139,24 @@ export default {
             this.isEmptySubject= false;
             this.isEmptyMessage= false;
         },
-        checkMail() {
-          this.isMailCorrect = true;
-          const pattern = /^[a-z0-9.-]{2,}@+[a-z0-9.-]{2,}$/i;
-          if (pattern.test(this.messageData.mail)) {
-            this.isMailCorrect = true;
-          } else {
-            this.isMailCorrect = false;
-          }
+        checkMailFormat() { // Vérifie si le format du mail est correct
+
+            //? Réinitialiser le booléen
+            this.isMailCorrect = true;3
+
+            //? Définir le regex pour le format mail
+            const pattern = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/i);
+
+            //? Vérifier le si le mail est saisi
+            if (this.userData.mail != '') {
+
+                //? Vérifier si la saisie correspond au regex
+                if (pattern.test(this.userData.mail)) {
+                    this.isMailCorrect = true;
+                } else {
+                    this.isMailCorrect = false;
+                }
+            }
         }
     }
 }
